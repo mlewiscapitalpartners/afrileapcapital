@@ -23,7 +23,7 @@
   --muted:     #5b6875;
   --line:      #e4e8ee;
   --bg:        #ffffff;
-  --header-h:  84px;
+  --header-h:  90px; /* Slightly increased to accommodate the bigger logo */
   --radius:    14px;
   --shadow-sm: 0 1px 2px rgba(16,24,40,.05);
   --shadow-md: 0 8px 24px rgba(16,24,40,.10);
@@ -96,10 +96,15 @@ ul{ list-style: none; margin: 0; padding: 0; }
 }
 
 .logo-img {
-  height: clamp(28px, 3.5vw, 44px); /* Scales the full logo appropriately */
+  height: clamp(32px, 3.5vw, 48px); /* Base logo size */
   width: auto;
   max-width: 100%;
   object-fit: contain;
+}
+
+/* Make AfriLeap logo bigger and more visible */
+.logo--afrileap .logo-img {
+  height: clamp(42px, 4.8vw, 64px);
 }
 
 /* ---------- Hamburger buttons ---------- */
@@ -598,117 +603,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .capital-label span{ color: var(--gold); }
 
 /* ============================================================
-   10. STRATEGIC DISTINCTION
-   ============================================================ */
-.distinction{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: clamp(14px, 1.8vw, 22px);
-}
-.distinction-card{
-  padding: 28px 26px;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: #fff;
-  box-shadow: var(--shadow-sm);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.distinction-card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(16,24,40,.09);
-}
-.distinction-card--principal{ border-top: 4px solid var(--navy); }
-.distinction-card--partner  { border-top: 4px solid var(--green); }
-
-.distinction-card .model{
-  display: inline-block;
-  margin-bottom: 14px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-.distinction-card h3{
-  margin: 0 0 10px;
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -.01em;
-}
-.distinction-card p{
-  margin: 0;
-  font-size: 14.5px;
-  line-height: 1.75;
-  color: var(--muted);
-}
-.distinction-note{
-  margin: 22px 0 0;
-  padding: 16px 20px;
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--muted);
-  background: rgba(213,160,33,.08);
-  border-left: 3px solid var(--gold);
-  border-radius: 0 10px 10px 0;
-}
-.distinction-note strong{ color: var(--navy); }
-
-/* ============================================================
-   11. POSITIONING STATEMENT
-   ============================================================ */
-.positioning{
-  position: relative;
-  padding: clamp(36px, 5vw, 60px) clamp(24px, 4vw, 56px);
-  background:
-    radial-gradient(600px 300px at 10% 10%, rgba(76,175,80,.15), transparent 60%),
-    radial-gradient(600px 300px at 90% 90%, rgba(213,160,33,.15), transparent 60%),
-    var(--navy);
-  border-radius: 24px;
-  color: #fff;
-  overflow: hidden;
-}
-.positioning::before{
-  content: "\201C";
-  position: absolute;
-  top: -10px;
-  left: 18px;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 160px;
-  line-height: 1;
-  color: rgba(255,255,255,.06);
-  pointer-events: none;
-}
-.positioning .section-kicker{ color: var(--gold); }
-.positioning blockquote{
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  max-width: 900px;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(18px, 2.4vw, 27px);
-  line-height: 1.5;
-  letter-spacing: -.005em;
-  color: #fff;
-}
-.positioning blockquote em{
-  font-style: normal;
-  color: var(--gold);
-}
-.positioning .mandate{
-  position: relative;
-  z-index: 1;
-  margin: 26px 0 0;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,.14);
-  font-size: 14.5px;
-  line-height: 1.75;
-  color: rgba(255,255,255,.78);
-  max-width: 820px;
-}
-
-/* ============================================================
-   12. BRAND CARDS
+   10. BRAND CARDS
    ============================================================ */
 .brands{ background: #f7f9fb; border-top: 1px solid var(--line); }
 .brands .section-head{ margin-left: auto; margin-right: auto; text-align: center; }
@@ -771,7 +666,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .card-actions{ display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ============================================================
-   13. FOOTER
+   11. FOOTER
    ============================================================ */
 .site-footer{
   border-top: 1px solid var(--line);
@@ -794,14 +689,15 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .footer-links a:hover{ color: var(--green); }
 
 /* ============================================================
-   14. RESPONSIVE TWEAKS
+   12. RESPONSIVE TWEAKS
    ============================================================ */
 @media (max-width: 560px){
-  :root{ --header-h: 74px; }
+  :root{ --header-h: 80px; }
   .header-side{ gap: 8px; }
   .hero h1{ letter-spacing: 0; }
 }
 @media (max-width: 420px){
+  .logo--afrileap .logo-img { height: 36px; }
   .logo-img { height: 28px; }
   .activity .num{ font-size: 23px; }
 }
@@ -832,7 +728,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
       </button>
 
       <a class="logo logo--afrileap" href="index.html" aria-label="AfriLeap Capital — go to home page">
-        <!-- Replace the src with your actual AfriLeap image path if needed -->
         <img src="ChatGPT Image Mar 17, 2026, 07_32_50 AM.png" alt="AfriLeap Capital" class="logo-img">
       </a>
     </div>
@@ -840,7 +735,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
     <!-- RIGHT SIDE : M. LEWIS GROUP -->
     <div class="header-side header-side--right">
       <a class="logo logo--mlg" href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer" aria-label="M. Lewis Group — opens mlewisgroup.com in a new tab">
-        <!-- Replace the src with your actual M. Lewis image path if needed -->
         <img src="Jun 28, 2026, 07_39_42 PM.png" alt="M. Lewis Group" class="logo-img">
       </a>
 
@@ -874,8 +768,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
       <li><a href="index.html">Home</a></li>
       <li><a href="#what-we-do">What We Do</a></li>
       <li><a href="#capital">Capital Categories</a></li>
-      <li><a href="#distinction">Operating Models</a></li>
-      <li><a href="#positioning">Positioning</a></li>
       <li><a href="#">Insights &amp; Research</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
@@ -932,7 +824,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
       </p>
       <div class="hero-actions">
         <a class="btn btn--primary" href="#what-we-do">What We Do</a>
-        <a class="btn btn--ghost" href="#positioning">Our Positioning</a>
+        <a class="btn btn--ghost" href="#brands">Explore Our Brands</a>
       </div>
     </div>
   </section>
@@ -998,45 +890,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
     </div>
   </section>
 
-  <!-- STRATEGIC DISTINCTION -->
-  <section class="section section--tight" id="distinction">
-    <div class="section-head">
-      <p class="section-kicker">One important strategic distinction</p>
-      <h2>Two possible operating models</h2>
-      <p>There are two possible operating models for AfriLeap Capital. These can coexist, but our website and investor communications distinguish them clearly.</p>
-    </div>
-
-    <div class="distinction">
-      <article class="distinction-card distinction-card--principal">
-        <span class="model">Model A</span>
-        <h3>Principal investor</h3>
-        <p>AfriLeap invests its own capital or capital under its direct investment management.</p>
-      </article>
-      <article class="distinction-card distinction-card--partner">
-        <span class="model">Model B</span>
-        <h3>Investment execution partner</h3>
-        <p>AfriLeap works with external investors, family offices, funds and capital providers to identify, evaluate, structure and execute investments.</p>
-      </article>
-    </div>
-
-    <p class="distinction-note">
-      <strong>Note:</strong> These models can coexist, but the distinction should remain clear. We do not imply that AfriLeap manages or controls investment capital unless that is actually the case.
-    </p>
-  </section>
-
-  <!-- POSITIONING STATEMENT -->
-  <section class="section section--tight" id="positioning">
-    <div class="positioning">
-      <p class="section-kicker">Recommended positioning statement</p>
-      <blockquote>
-        AfriLeap Capital is an <em>investment and capital deployment platform</em> focused on identifying, evaluating, structuring and executing investment opportunities across Africa. We work across venture, impact and growth capital to connect promising businesses with strategic investment and support their long-term value creation.
-      </blockquote>
-      <p class="mandate">
-        This gives AfriLeap a clear mandate: finding where capital should go, determining how it should be invested, and executing the investment effectively.
-      </p>
-    </div>
-  </section>
-
   <!-- BRAND CARDS -->
   <section class="section brands" id="brands">
     <div class="section-head section-head--center">
@@ -1087,7 +940,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
     <nav class="footer-links" aria-label="Footer">
       <a href="index.html">Home</a>
       <a href="#what-we-do">What We Do</a>
-      <a href="#positioning">Positioning</a>
+      <a href="#brands">Our Brands</a>
       <a href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer">M. Lewis Group ↗</a>
     </nav>
   </div>
