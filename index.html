@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>AfriLeap Capital | M. Lewis Group</title>
-<meta name="description" content="AfriLeap Capital — an investment and capital deployment platform identifying, evaluating, structuring and executing investment opportunities across Africa." />
+<meta name="description" content="AfriLeap Capital — an investment and capital deployment platform identifying, evaluating, structuring and executing investment opportunities across Africa. A M. Lewis Group Company." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
   --muted:     #5b6875;
   --line:      #e4e8ee;
   --bg:        #ffffff;
-  --header-h:  90px; /* Slightly increased to accommodate the bigger logo */
+  --header-h:  90px;
   --radius:    14px;
   --shadow-sm: 0 1px 2px rgba(16,24,40,.05);
   --shadow-md: 0 8px 24px rgba(16,24,40,.10);
@@ -70,6 +70,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  position: relative;
 }
 
 .header-side{
@@ -77,6 +78,26 @@ ul{ list-style: none; margin: 0; padding: 0; }
   align-items: center;
   gap: clamp(8px, 1.4vw, 16px);
   min-width: 0;
+}
+
+/* Center Badge to unify the brands */
+.header-center-badge {
+  display: none; /* Hidden on mobile */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+@media (min-width: 900px) {
+  .header-center-badge {
+    display: block;
+  }
 }
 
 /* ---------- Logos (Image based) ---------- */
@@ -87,6 +108,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   border-radius: 12px;
   transition: transform .2s ease, opacity .2s ease;
   min-width: 0;
+  z-index: 2;
 }
 .logo:hover  { transform: translateY(-1px); opacity: .92; }
 .logo:active { transform: translateY(0); }
@@ -96,13 +118,13 @@ ul{ list-style: none; margin: 0; padding: 0; }
 }
 
 .logo-img {
-  height: clamp(32px, 3.5vw, 48px); /* Base logo size */
+  height: clamp(32px, 3.5vw, 48px);
   width: auto;
   max-width: 100%;
   object-fit: contain;
 }
 
-/* Make AfriLeap logo bigger and more visible */
+/* AfriLeap logo slightly bigger and more visible */
 .logo--afrileap .logo-img {
   height: clamp(42px, 4.8vw, 64px);
 }
@@ -214,7 +236,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   background: var(--accent);
   color: #fff;
 }
-.drawer--mlg .drawer-head { color: var(--navy); } /* Gold bg needs dark text */
+.drawer--mlg .drawer-head { color: var(--navy); }
 
 .drawer-brand{ display: flex; flex-direction: column; line-height: 1.1; }
 .drawer-brand-name{
@@ -422,11 +444,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
   text-transform: uppercase;
   color: var(--navy);
 }
-.hero h1 em{
-  font-style: normal;
-  color: var(--green);
-  background: linear-gradient(180deg, transparent 62%, rgba(213,160,33,.35) 62%);
-}
 
 .hero .lead{
   max-width: 760px;
@@ -603,7 +620,60 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .capital-label span{ color: var(--gold); }
 
 /* ============================================================
-   10. BRAND CARDS
+   10. POSITIONING STATEMENT
+   ============================================================ */
+.positioning{
+  position: relative;
+  padding: clamp(40px, 6vw, 70px) clamp(24px, 4vw, 56px);
+  background:
+    radial-gradient(600px 300px at 10% 10%, rgba(76,175,80,.15), transparent 60%),
+    radial-gradient(600px 300px at 90% 90%, rgba(213,160,33,.15), transparent 60%),
+    var(--navy);
+  border-radius: 24px;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.positioning::before{
+  content: "\201C";
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 160px;
+  line-height: 1;
+  color: rgba(255,255,255,.06);
+  pointer-events: none;
+}
+.positioning blockquote{
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: 900px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(18px, 2.4vw, 27px);
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  color: #fff;
+}
+.positioning blockquote em{
+  font-style: normal;
+  color: var(--gold);
+}
+.positioning .mandate{
+  position: relative;
+  z-index: 1;
+  margin: 26px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.78);
+  max-width: 820px;
+}
+
+/* ============================================================
+   11. BRAND CARDS
    ============================================================ */
 .brands{ background: #f7f9fb; border-top: 1px solid var(--line); }
 .brands .section-head{ margin-left: auto; margin-right: auto; text-align: center; }
@@ -666,7 +736,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .card-actions{ display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ============================================================
-   11. FOOTER
+   12. FOOTER
    ============================================================ */
 .site-footer{
   border-top: 1px solid var(--line);
@@ -689,7 +759,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .footer-links a:hover{ color: var(--green); }
 
 /* ============================================================
-   12. RESPONSIVE TWEAKS
+   13. RESPONSIVE TWEAKS
    ============================================================ */
 @media (max-width: 560px){
   :root{ --header-h: 80px; }
@@ -732,6 +802,9 @@ ul{ list-style: none; margin: 0; padding: 0; }
       </a>
     </div>
 
+    <!-- CENTER BADGE : UNIFIES THE BRANDS -->
+    <div class="header-center-badge">A M. Lewis Group Company</div>
+
     <!-- RIGHT SIDE : M. LEWIS GROUP -->
     <div class="header-side header-side--right">
       <a class="logo logo--mlg" href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer" aria-label="M. Lewis Group — opens mlewisgroup.com in a new tab">
@@ -768,6 +841,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
       <li><a href="index.html">Home</a></li>
       <li><a href="#what-we-do">What We Do</a></li>
       <li><a href="#capital">Capital Categories</a></li>
+      <li><a href="#positioning">Our Positioning</a></li>
       <li><a href="#">Insights &amp; Research</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
@@ -816,7 +890,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
   <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <p class="eyebrow"><span class="dot"></span>AfriLeap Capital</p>
+      <p class="eyebrow"><span class="dot"></span>AfriLeap Capital &middot; A M. Lewis Group Company</p>
       <h1>Capital Deployment &amp; Investment Execution</h1>
       <p class="lead">
         Identifying opportunities, evaluating investments, structuring transactions
@@ -824,7 +898,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
       </p>
       <div class="hero-actions">
         <a class="btn btn--primary" href="#what-we-do">What We Do</a>
-        <a class="btn btn--ghost" href="#brands">Explore Our Brands</a>
+        <a class="btn btn--ghost" href="#brands">Explore Our Group</a>
       </div>
     </div>
   </section>
@@ -890,12 +964,24 @@ ul{ list-style: none; margin: 0; padding: 0; }
     </div>
   </section>
 
+  <!-- CORE POSITIONING STATEMENT (Restored without the headline) -->
+  <section class="section section--tight" id="positioning">
+    <div class="positioning">
+      <blockquote>
+        AfriLeap Capital is an <em>investment and capital deployment platform</em> focused on identifying, evaluating, structuring and executing investment opportunities across Africa. We work across venture, impact and growth capital to connect promising businesses with strategic investment and support their long-term value creation.
+      </blockquote>
+      <p class="mandate">
+        This gives AfriLeap a clear mandate: finding where capital should go, determining how it should be invested, and executing the investment effectively.
+      </p>
+    </div>
+  </section>
+
   <!-- BRAND CARDS -->
   <section class="section brands" id="brands">
     <div class="section-head section-head--center">
-      <p class="section-kicker">Two businesses, one vision</p>
-      <h2>Explore our brands</h2>
-      <p>Use the menus above — or the buttons below — to explore each brand's activities.</p>
+      <p class="section-kicker">One Group, Two Specialized Platforms</p>
+      <h2>Explore our group</h2>
+      <p>AfriLeap Capital operates alongside M. Lewis Group to deliver comprehensive value across the continent.</p>
     </div>
 
     <div class="card-grid">
@@ -907,10 +993,9 @@ ul{ list-style: none; margin: 0; padding: 0; }
           <path d="M15.5 26L24 17.5 32.5 26" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3>AfriLeap Capital</h3>
-        <p>An Africa-focused investment and capital deployment platform backing bold businesses through venture, impact and growth capital.</p>
+        <p>The dedicated investment and capital deployment platform of M. Lewis Group, backing bold businesses through venture, impact and growth capital.</p>
         <div class="card-actions">
           <button type="button" class="btn btn--primary btn--sm" data-open-menu="alc">View activities</button>
-          <a class="btn btn--ghost btn--sm" href="index.html">Home page</a>
         </div>
       </article>
 
@@ -921,7 +1006,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
           <path d="M13 34V14.5L24 26l11-11.5V34" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <h3>M. Lewis Group</h3>
-        <p>A diversified group delivering reliable services and long-term value across its operating companies, built on trust and delivery.</p>
+        <p>The diversified parent group providing governance, operational strength, and long-term vision, supporting AfriLeap's mandate across the continent.</p>
         <div class="card-actions">
           <button type="button" class="btn btn--gold btn--sm" data-open-menu="mlg">View activities</button>
           <a class="btn btn--ghost btn--sm" href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer">mlewisgroup.com <span aria-hidden="true">↗</span></a>
@@ -940,7 +1025,7 @@ ul{ list-style: none; margin: 0; padding: 0; }
     <nav class="footer-links" aria-label="Footer">
       <a href="index.html">Home</a>
       <a href="#what-we-do">What We Do</a>
-      <a href="#brands">Our Brands</a>
+      <a href="#positioning">Our Positioning</a>
       <a href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer">M. Lewis Group ↗</a>
     </nav>
   </div>
