@@ -12,10 +12,10 @@
 
 <style>
 /* ============================================================
-   1. DESIGN TOKENS (Updated to match logo image)
+   1. DESIGN TOKENS
    ============================================================ */
 :root{
-  --navy:      #0F1C2E; /* Corporate Navy from text */
+  --navy:      #0F1C2E; /* Corporate Navy */
   --navy-soft: #16263D;
   --gold:      #D5A021; /* M. Lewis Group Gold */
   --green:     #4CAF50; /* AfriLeap Capital Green */
@@ -79,12 +79,11 @@ ul{ list-style: none; margin: 0; padding: 0; }
   min-width: 0;
 }
 
-/* ---------- Logos (Updated Colors) ---------- */
+/* ---------- Logos (Image based) ---------- */
 .logo{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 4px;
+  padding: 4px;
   border-radius: 12px;
   transition: transform .2s ease, opacity .2s ease;
   min-width: 0;
@@ -96,44 +95,12 @@ ul{ list-style: none; margin: 0; padding: 0; }
   outline-offset: 3px;
 }
 
-.logo-mark{
-  width: clamp(32px, 3.1vw, 42px);
-  height: clamp(32px, 3.1vw, 42px);
-  flex: 0 0 auto;
-  transition: transform .3s ease;
+.logo-img {
+  height: clamp(28px, 3.5vw, 44px); /* Scales the full logo appropriately */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
 }
-.logo:hover .logo-mark{ transform: rotate(-4deg) scale(1.04); }
-
-/* M. Lewis Group Icon -> Gold */
-.logo--mlg .logo-mark{ color: var(--gold); }
-
-/* AfriLeap Capital Icon -> Green */
-.logo--afrileap .logo-mark{ color: var(--green); }
-
-.logo-text{
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-  min-width: 0;
-}
-.logo-name{
-  font-size: clamp(14px, 1.35vw, 19px);
-  font-weight: 800;
-  letter-spacing: .01em;
-  color: var(--navy);
-  white-space: nowrap;
-}
-.logo-sub{
-  margin-top: 5px;
-  font-size: clamp(8px, .78vw, 10px);
-  font-weight: 700;
-  letter-spacing: .34em;
-  text-transform: uppercase;
-  color: var(--muted);
-  white-space: nowrap;
-}
-.logo--afrileap .logo-name{ color: var(--navy); }
-.logo--afrileap .logo-sub { color: var(--muted); }
 
 /* ---------- Hamburger buttons ---------- */
 .menu-btn{
@@ -230,8 +197,8 @@ ul{ list-style: none; margin: 0; padding: 0; }
 .drawer.is-open{ transform: translateX(0); visibility: visible; }
 
 /* Drawer Accents */
-.drawer--mlg { --accent: var(--gold); }
 .drawer--alc { --accent: var(--green); }
+.drawer--mlg { --accent: var(--gold); }
 
 .drawer-head{
   display: flex;
@@ -832,14 +799,10 @@ ul{ list-style: none; margin: 0; padding: 0; }
 @media (max-width: 560px){
   :root{ --header-h: 74px; }
   .header-side{ gap: 8px; }
-  .logo{ gap: 8px; }
-  .logo-sub{ letter-spacing: .26em; }
   .hero h1{ letter-spacing: 0; }
 }
 @media (max-width: 420px){
-  .logo-sub{ display: none; }
-  .logo-name{ font-size: 13.5px; }
-  .logo-mark{ width: 30px; height: 30px; }
+  .logo-img { height: 28px; }
   .activity .num{ font-size: 23px; }
 }
 
@@ -862,39 +825,26 @@ ul{ list-style: none; margin: 0; padding: 0; }
 <header class="site-header">
   <div class="header-inner">
 
-    <!-- LEFT SIDE : M. LEWIS GROUP -->
+    <!-- LEFT SIDE : AFRiLEAP CAPITAL -->
     <div class="header-side header-side--left">
-      <button type="button" class="menu-btn" id="mlgMenuBtn" aria-label="Open M. Lewis Group menu" aria-haspopup="true" aria-expanded="false" aria-controls="mlgDrawer">
+      <button type="button" class="menu-btn" id="alcMenuBtn" aria-label="Open AfriLeap Capital menu" aria-haspopup="true" aria-expanded="false" aria-controls="alcDrawer">
         <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
 
-      <a class="logo logo--mlg" href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer" aria-label="M. Lewis Group — opens mlewisgroup.com in a new tab">
-        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-          <rect x="1.75" y="1.75" width="44.5" height="44.5" rx="11" fill="none" stroke="currentColor" stroke-width="2.5"/>
-          <path d="M13 34V14.5L24 26l11-11.5V34" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">
-          <span class="logo-name">M. LEWIS</span>
-          <span class="logo-sub">Group</span>
-        </span>
+      <a class="logo logo--afrileap" href="index.html" aria-label="AfriLeap Capital — go to home page">
+        <!-- Replace the src with your actual AfriLeap image path if needed -->
+        <img src="ChatGPT Image Mar 17, 2026, 07_32_50 AM.png" alt="AfriLeap Capital" class="logo-img">
       </a>
     </div>
 
-    <!-- RIGHT SIDE : AFRiLEAP CAPITAL -->
+    <!-- RIGHT SIDE : M. LEWIS GROUP -->
     <div class="header-side header-side--right">
-      <a class="logo logo--afrileap" href="index.html" aria-label="AfriLeap Capital — go to home page">
-        <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-          <circle cx="24" cy="24" r="20.75" fill="none" stroke="currentColor" stroke-width="2.5" opacity=".38"/>
-          <path d="M24 34.5V17.5" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
-          <path d="M15.5 26L24 17.5 32.5 26" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="logo-text">
-          <span class="logo-name">AfriLeap</span>
-          <span class="logo-sub">Capital</span>
-        </span>
+      <a class="logo logo--mlg" href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer" aria-label="M. Lewis Group — opens mlewisgroup.com in a new tab">
+        <!-- Replace the src with your actual M. Lewis image path if needed -->
+        <img src="Jun 28, 2026, 07_39_42 PM.png" alt="M. Lewis Group" class="logo-img">
       </a>
 
-      <button type="button" class="menu-btn" id="alcMenuBtn" aria-label="Open AfriLeap Capital menu" aria-haspopup="true" aria-expanded="false" aria-controls="alcDrawer">
+      <button type="button" class="menu-btn" id="mlgMenuBtn" aria-label="Open M. Lewis Group menu" aria-haspopup="true" aria-expanded="false" aria-controls="mlgDrawer">
         <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
     </div>
@@ -908,9 +858,38 @@ ul{ list-style: none; margin: 0; padding: 0; }
 <div class="backdrop" id="backdrop" hidden></div>
 
 <!-- ============================================================
-     DRAWER 1 — M. LEWIS GROUP
+     DRAWER 1 — AFRiLEAP CAPITAL (Slides from Left)
      ============================================================ -->
-<aside class="drawer drawer--left drawer--mlg" id="mlgDrawer" role="dialog" aria-modal="true" aria-labelledby="mlgDrawerTitle" aria-hidden="true">
+<aside class="drawer drawer--left drawer--alc" id="alcDrawer" role="dialog" aria-modal="true" aria-labelledby="alcDrawerTitle" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="drawer-brand" id="alcDrawerTitle">
+      <span class="drawer-brand-name">AfriLeap Capital</span>
+      <span class="drawer-brand-sub">Capital Menu</span>
+    </span>
+    <button type="button" class="drawer-close" aria-label="Close AfriLeap Capital menu">&times;</button>
+  </div>
+
+  <nav class="drawer-nav" aria-label="AfriLeap Capital activities">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#capital">Capital Categories</a></li>
+      <li><a href="#distinction">Operating Models</a></li>
+      <li><a href="#positioning">Positioning</a></li>
+      <li><a href="#">Insights &amp; Research</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="drawer-foot">
+    <a class="btn btn--primary btn--sm" href="index.html">Back to home page</a>
+  </div>
+</aside>
+
+<!-- ============================================================
+     DRAWER 2 — M. LEWIS GROUP (Slides from Right)
+     ============================================================ -->
+<aside class="drawer drawer--right drawer--mlg" id="mlgDrawer" role="dialog" aria-modal="true" aria-labelledby="mlgDrawerTitle" aria-hidden="true">
   <div class="drawer-head">
     <span class="drawer-brand" id="mlgDrawerTitle">
       <span class="drawer-brand-name">M. Lewis Group</span>
@@ -935,35 +914,6 @@ ul{ list-style: none; margin: 0; padding: 0; }
     <a class="btn btn--dark btn--sm" href="https://www.mlewisgroup.com" target="_blank" rel="noopener noreferrer">
       Visit mlewisgroup.com <span aria-hidden="true">↗</span>
     </a>
-  </div>
-</aside>
-
-<!-- ============================================================
-     DRAWER 2 — AFRiLEAP CAPITAL
-     ============================================================ -->
-<aside class="drawer drawer--right drawer--alc" id="alcDrawer" role="dialog" aria-modal="true" aria-labelledby="alcDrawerTitle" aria-hidden="true">
-  <div class="drawer-head">
-    <span class="drawer-brand" id="alcDrawerTitle">
-      <span class="drawer-brand-name">AfriLeap Capital</span>
-      <span class="drawer-brand-sub">Capital Menu</span>
-    </span>
-    <button type="button" class="drawer-close" aria-label="Close AfriLeap Capital menu">&times;</button>
-  </div>
-
-  <nav class="drawer-nav" aria-label="AfriLeap Capital activities">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#what-we-do">What We Do</a></li>
-      <li><a href="#capital">Capital Categories</a></li>
-      <li><a href="#distinction">Operating Models</a></li>
-      <li><a href="#positioning">Positioning</a></li>
-      <li><a href="#">Insights &amp; Research</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="drawer-foot">
-    <a class="btn btn--primary btn--sm" href="index.html">Back to home page</a>
   </div>
 </aside>
 
